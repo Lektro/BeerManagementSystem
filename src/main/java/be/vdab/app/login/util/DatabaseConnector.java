@@ -21,7 +21,7 @@ public class DatabaseConnector {
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("Connection could not be established!");
-            return dbConnect();
+            return null;
         }
         return null;
     }
