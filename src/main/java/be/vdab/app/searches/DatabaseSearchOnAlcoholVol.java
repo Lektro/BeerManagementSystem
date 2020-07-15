@@ -1,17 +1,17 @@
-package be.vdab.app.database;
+package be.vdab.app.searches;
 
 import java.sql.*;
 import java.util.Scanner;
 
 import static be.vdab.app.login.util.LoginCredentials.*;
 
-public class DatabaseSearchOnName {
+public class DatabaseSearchOnAlcoholVol {
 
-    public static Connection dbConnectSearchOnName() {
+    public static Connection dbConnectSearchOnAlcoholVol() {
 
         Connection conn = null;
-        String searchVariable = userInput();
-        String sql = "SELECT Name, Id, Alcohol, Price, Stock, BrewerId, CategoryId FROM Beers WHERE Name LIKE '%" + searchVariable + "%'";
+        double searchVariable = userInputDouble();
+        String sql = "SELECT Name, Id, Alcohol, Price, Stock, BrewerId, CategoryId FROM Beers WHERE Alcohol = " + searchVariable + "";
 
         try {
             conn = DriverManager.getConnection(url, user, pass);
@@ -19,7 +19,6 @@ public class DatabaseSearchOnName {
                 System.out.println("Connection established!");
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
-
 
                 /** While there are matches found print out the result */
                 while (rs.next()) {
@@ -32,20 +31,18 @@ public class DatabaseSearchOnName {
                     int CategoryId = rs.getInt(7);
                     System.out.format("%s %s %s %s %s %s %s%n", beerName + " -- ", "ID Number: " + id," % VOL: "+  alcohol," EUR: " + price,
                             " Pcs in Stock: " + stock, "Brewer ID: " + BrewerId, "Category ID: " + CategoryId);
-            }
+                }
                 return conn;
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return conn;
     }
-
-    private static String userInput() {
-        System.out.println(" Enter Search Term for Beer Name: ");
+    private static double userInputDouble() {
+        System.out.println(" Input Double to search by Alcohol VOL:  ");
         Scanner sc = new Scanner(System.in);
-        String searchVariable = sc.nextLine();
-        return searchVariable;
+        double searchDouble = sc.nextDouble();
+        return searchDouble;
     }
 }

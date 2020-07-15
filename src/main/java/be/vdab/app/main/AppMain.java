@@ -1,15 +1,15 @@
 package be.vdab.app.main;
 
-import static be.vdab.app.database.DatabaseChangeStock.dbConnectChangeStock;
-import static be.vdab.app.database.DatabaseSearchOnName.dbConnectSearchOnName;
+import static be.vdab.app.searches.DatabaseSearchOnAlcoholVol.dbConnectSearchOnAlcoholVol;
 
 public class AppMain {
 
     public static void main(String[] args) {
         // System.out.println("Test");
-        dbConnectSearchOnName();
-        dbConnectChangeStock();
-        dbConnectSearchOnName();
+        //dbConnectSearchOnName();
+        //dbConnectChangeStock();
+        //dbConnectSearchOnName();
+        dbConnectSearchOnAlcoholVol();
     }
 }
 
