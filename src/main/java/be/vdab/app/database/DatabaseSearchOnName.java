@@ -30,8 +30,8 @@ public class DatabaseSearchOnName {
                     int stock = rs.getInt(5);
                     int BrewerId = rs.getInt(6);
                     int CategoryId = rs.getInt(7);
-                    System.out.format("%s %s %s %s %s %s %s%n", beerName, " ID Number: " + id, alcohol + " % VOL ", price + " EUR ",
-                            stock + " Pcs in Stock ", "Brewer ID = " + BrewerId, "Category ID = " + CategoryId);
+                    System.out.format("%s %s %s %s %s %s %s%n", beerName, " ID Number: " + id," % VOL: "+  alcohol," EUR: " + price,
+                            " Pcs in Stock: " + stock, "Brewer ID: " + BrewerId, "Category ID: " + CategoryId);
             }
                 return conn;
             }
