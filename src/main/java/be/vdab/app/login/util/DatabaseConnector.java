@@ -7,8 +7,8 @@ import java.sql.DriverManager;
 import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class DatabaseConnector {
-    public DatabaseConnector dbConnect() {
-        Connection conn = dbConnect();
+    public static DatabaseConnector dbConnect() {
+        Connection conn = null;
 
         try {
             conn = DriverManager.getConnection(url, user, pass);
@@ -16,7 +16,7 @@ public class DatabaseConnector {
             if (conn == null) {
                 System.out.println("Connection could not be established!");
             }
-            return conn;
+            return dbConnect();
         } catch (Exception e) {
             System.out.println(e);
         }
