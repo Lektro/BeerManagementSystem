@@ -1,44 +1,30 @@
 package be.vdab.app.beerDAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
-/** static import of login credentials */
 import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class GetBeerNames {
 
-    private int id;
-    private String name;
-    private float price;
-    private int stock;
-    private float alcohol;
+    /** SQL Statement comes here */
+    String sql = "SELECT Name FROM Beers WHERE Name LIKE 'J%'";
 
-    /** write your sql statements here */
-    String sql = "SELECT Name, Alcohol, Price, Stock, BrewerId, CategoryId FROM Beers WHERE Name like 'Nie%'";
+    /** Open connection with the local database using the ConnectionUtil for credentials */
 
-    /** attempt connection to DB */
-        try (
-    Connection con = DriverManager.getConnection(url, user, pass);  {
-        System.out.println("Connection OK");
+    Connection con = DriverManager.getConnection(url, user, pass); {
+    System.out.println("Connection Established! ");
 
-        /** statements here */
-        Statement statement = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = statement.executeQuery(sql);
+    /** Statement */
+    Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+    ResultSet rs = st.executeQuery(sql);
 
-        while (rs.next()) {
-            String beerName = rs.getString(1);
-            double alcohol = rs.getDouble(2);
-            double price = rs.getDouble(3);
-            int stock = rs.getInt(4);
-            int BrewerId = rs.getInt(5);
-            int CategoryId = rs.getInt(6);
-            System.out.format("%s %s %s %s %s %s%n", beerName, alcohol + " % VOL ", price + " EUR ", stock + " Pcs in Stock ", "Brewer ID = " + BrewerId, "Category ID = " + CategoryId);
-        }
-    } catch (Exception ex) {
-        System.out.println("Something went wrong!");
-        ex.printStackTrace(System.err);
+    /** While there are matches found print out the result */
+    while (rs.next()) {
+        String beerName = rs.getString(1);
+        System.out.format("%s%n", beerName);
+    }
+
+    /** Error handling */
+    } public GetBeerNames() throws SQLException {
     }
 }

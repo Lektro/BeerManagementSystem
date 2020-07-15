@@ -1,12 +1,16 @@
 package be.vdab.app;
-import static be.vdab.app.login.util.DatabaseConnector.dbConnect;
+
+import be.vdab.app.beerDAO.GetBeerNames;
+
+import java.sql.SQLException;
 
 public class AppMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         // System.out.println("Test");
-        dbConnect();
+        // dbConnect();
         // Beer beer = new Beer(id);
-
+        GetBeerNames gbn = new GetBeerNames();
+        gbn.toString();
     }
 }
