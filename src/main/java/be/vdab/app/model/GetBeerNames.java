@@ -1,17 +1,25 @@
-package be.vdab.app.beerDAO;
+package be.vdab.app.model;
 
 import java.sql.*;
+import java.util.Scanner;
 
 import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class GetBeerNames {
 
-    public String searchVariable = "J";
+    String searchVariable = userInput();
+
+    public static String userInput() {
+        System.out.println(" Enter Search Term: ");
+        Scanner sc = new Scanner(System.in);
+        String searchVariable = sc.nextLine();
+        return searchVariable;
+    }
     /** SQL Statement comes here */
-    String sql = "SELECT Name FROM Beers WHERE Name LIKE '" + searchVariable + "%'";
+    String sql = "SELECT Name FROM Beers WHERE Name LIKE '%" + searchVariable + "%'";
 
     /** Open connection with the local database using the ConnectionUtil for credentials */
-
+    /** needs to be replaced by util */
     Connection con = DriverManager.getConnection(url, user, pass); {
     System.out.println("Connection Established! ");
 
