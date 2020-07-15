@@ -6,8 +6,9 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class GetBeerNames {
 
+    public String searchVariable = "J";
     /** SQL Statement comes here */
-    String sql = "SELECT Name FROM Beers WHERE Name LIKE 'J%'";
+    String sql = "SELECT Name FROM Beers WHERE Name LIKE '" + searchVariable + "%'";
 
     /** Open connection with the local database using the ConnectionUtil for credentials */
 
