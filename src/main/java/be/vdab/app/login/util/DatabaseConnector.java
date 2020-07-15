@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class DatabaseConnector {
+
     public static Connection dbConnect() {
 
         Connection conn;

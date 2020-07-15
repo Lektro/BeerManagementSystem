@@ -17,22 +17,23 @@ public class GetBeerNames {
         String searchVariable = sc.nextLine();
         return searchVariable;
     }
+
     /** SQL Statement comes here */
     String sql = "SELECT Name FROM Beers WHERE Name LIKE '%" + searchVariable + "%'";
 
     /** Open connection with the local database using the ConnectionUtil for credentials */
     /** needs to be replaced by util */
     Connection con = DriverManager.getConnection(url, user, pass); {
-    System.out.println("Connection Established! ");
+        System.out.println("Connection Established! ");
 
-    /** Statement */
-    Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    ResultSet rs = st.executeQuery(sql);
+        /** Statement */
+        Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs = st.executeQuery(sql);
 
-    /** While there are matches found print out the result */
-    while (rs.next()) {
-        String beerName = rs.getString(1);
-        System.out.format("%s%n", beerName);
-    }
+        /** While there are matches found print out the result */
+        while (rs.next()) {
+            String beerName = rs.getString(1);
+            System.out.format("%s%n", beerName);
+        }
     }
 }
