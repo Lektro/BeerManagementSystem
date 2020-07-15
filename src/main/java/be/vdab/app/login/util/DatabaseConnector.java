@@ -13,14 +13,15 @@ public class DatabaseConnector {
         try {
             conn = DriverManager.getConnection(url, user, pass);
             System.out.println("Connection established!");
+
             if (conn == null) {
-                System.out.println("Connection could not be established!");
+                conn.close();
             }
-            return dbConnect();
         } catch (Exception e) {
             System.out.println(e);
+            System.out.println("Connection could not be established!");
         }
-        return null;
+        return dbConnect();
     }
 }
 
