@@ -1,15 +1,21 @@
 package be.vdab.app.main;
 
-import static be.vdab.app.searches.DatabaseSearchOnAlcoholVol.dbConnectSearchOnAlcoholVol;
+import static be.vdab.app.database.DatabaseChangeStock.*;
+import static be.vdab.app.searches.DatabaseSearchOnAlcoholVol.*;
+import static be.vdab.app.searches.DatabaseSearchOnName.*;
 
 public class AppMain {
 
     public static void main(String[] args) {
         // System.out.println("Test");
-        //dbConnectSearchOnName();
-        //dbConnectChangeStock();
-        //dbConnectSearchOnName();
+        dbConnectSearchOnName();
         dbConnectSearchOnAlcoholVol();
+        dbConnectChangeStock();
+        // searchOnId
+        //dbConnectSearchOnName();
+
+
+        // give all beers by producers with selected turnover? sql merge?
     }
 }
 

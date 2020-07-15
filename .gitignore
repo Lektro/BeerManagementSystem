@@ -53,3 +53,4 @@ fabric.properties
 modules.xml
 .idea/*
 /target
+src/main/java/be/vdab/app/login/util
