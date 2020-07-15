@@ -7,6 +7,8 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class GetBeerNames {
 
+    public GetBeerNames() throws SQLException {}
+
     String searchVariable = userInput();
 
     public static String userInput() {
@@ -32,8 +34,5 @@ public class GetBeerNames {
         String beerName = rs.getString(1);
         System.out.format("%s%n", beerName);
     }
-
-    /** Error handling */
-    } public GetBeerNames() throws SQLException {
     }
 }
