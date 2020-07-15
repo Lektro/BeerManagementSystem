@@ -7,22 +7,26 @@ import java.sql.*;
 /** static import of login credentials */
 import static be.vdab.app.login.util.LoginCredentials.*;
 
-public class BeerDoaImpl {
+public class BeerDoaImpl implements BeerDao {
 
-    //@Override
-    public Beer getBeerById(int id) throws BeerException {
+
+    public Beer getBeerByID(int id) throws BeerException {
+
         try (Connection con = DriverManager.getConnection(
                 url,
                 user,
                 pass);
 
              PreparedStatement prepstat = con.prepareStatement(
-                     "SELECT * FROM Beers Where Id =?"
-             );
-             ResultSet rs = prepstat.executeQuery()
+                     "SELECT * FROM Beers WHERE Id = ?"
+             )
+
         ) {
 
             prepstat.setInt(1, id);
+            ResultSet rs = prepstat.executeQuery();
+
+
             if (rs.next()) {
                 Beer resultingBeer = new Beer();
                 resultingBeer.setId(id);
@@ -30,42 +34,58 @@ public class BeerDoaImpl {
                 resultingBeer.setPrice(rs.getFloat("Price"));
                 resultingBeer.setAlcohol(rs.getFloat("Alcohol"));
                 resultingBeer.setStock(rs.getInt("Stock"));
-
                 return resultingBeer;
-
             } else {
                 return null;
             }
+
         } catch (SQLException sqlException) {
-            System.out.println("Oops connection failed");
+            System.out.println("oops something went wrong");
             sqlException.printStackTrace();
             throw new BeerException(sqlException);
         }
     }
 
-    //@Override
+    @Override
+    public Beer getBeerById(int id) throws BeerException {
+        return null;
+    }
+
+    @Override
     public void updateBeer(Beer beer) throws BeerException {
 
+        // Connection
         try (Connection con = DriverManager.getConnection(
                 url,
                 user,
                 pass);
 
-             PreparedStatement ps = con.prepareStatement(
-                     " UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id = ? "
+             // Prepared Statement
+             PreparedStatement prepstat = con.prepareStatement(
+                     "UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id=?"
              )
-
         ) {
-            ps.setString(1, beer.getName());
-            ps.setFloat(2, beer.getPrice());
-            ps.setFloat(3, beer.getAlcohol());
-            ps.setInt(4, beer.getStock());
-            ps.setInt(5, beer.getId());
+            System.out.println("Connection established. Ready to set values.");
 
-        } catch (SQLException sqlException) {
-            System.out.println("Oops connection failed");
-            sqlException.printStackTrace();
-            throw new BeerException(sqlException);
+            // Vraagtekens setten
+            prepstat.setString(1, beer.getName());
+            prepstat.setFloat(2, beer.getPrice());
+            prepstat.setFloat(3, beer.getAlcohol());
+            prepstat.setInt(4, beer.getStock());
+            prepstat.setInt(5, beer.getId());
+
+            System.out.println("Values set");
+
+            // Execute!
+            prepstat.executeUpdate();
+
+            System.out.println("Update executed. Closing down.");
+
+        } catch (Exception e) {
+            // catch... BeerException
+            System.out.println("something went wrong :)");
+            e.printStackTrace();
+            throw new BeerException(e);
         }
     }
 }

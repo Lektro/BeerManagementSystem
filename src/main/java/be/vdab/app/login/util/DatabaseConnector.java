@@ -15,7 +15,6 @@ public class DatabaseConnector {
             conn = DriverManager.getConnection(url, user, pass);
             System.out.println("Connection established!");
 
-
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("Connection could not be established!");
