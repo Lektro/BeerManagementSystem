@@ -1,4 +1,4 @@
-package be.vdab.login;
+package be.vdab.app.login.util;
 
 public class LoginCredentials {
 
