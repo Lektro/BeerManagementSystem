@@ -11,19 +11,24 @@ public class DatabaseChangeStock {
         System.out.println("Enter the ID number of the beer you want to update: ");
         Scanner sc = new Scanner(System.in);
         int nameToUpdate = sc.nextInt();
+
         return nameToUpdate;
     }
+
     private static int userInputStockQuant() {
         System.out.println("Enter the quantity you want to update the stock to: ");
         Scanner sc = new Scanner(System.in);
         int beerIdToUpdate = sc.nextInt();
+
         return beerIdToUpdate;
     }
+
     public static Connection dbConnectChangeStock() {
 
         Connection conn = null;
         int beerIdToUpdate = userInputBeerID();
         int stockAmountToUpdate = userInputStockQuant();
+
         String sql = String.format("UPDATE Beers SET Stock = %d WHERE ID = %d ", stockAmountToUpdate, beerIdToUpdate);
 
         try {

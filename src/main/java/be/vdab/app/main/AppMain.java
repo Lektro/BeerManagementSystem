@@ -11,7 +11,8 @@ public class AppMain {
         //dbConnectChangeStock();
         //dbConnectSearchOnName();
         //dbConnectSearchOnID();
-        // dbConnectChangePrice();
+        //dbConnectChangePrice();
+
         // give all beers by producers with selected turnover? sql merge?
         // adjust price?? gives --> java.util.InputMismatchException
         // adjust price works could use a unit test I suppose
@@ -21,4 +22,4 @@ public class AppMain {
 
 // testrun on Primeur kriek  ID Number: 1076 5.0 % VOL  2.55 EUR  50 Pcs in Stock  Brewer ID = 11 Category ID = 22
 // after update --> Primeur kriek  ID Number: 1076 5.0 % VOL  2.55 EUR  555 Pcs in Stock  Brewer ID = 11 Category ID = 22
-// succes
+// succes with update price

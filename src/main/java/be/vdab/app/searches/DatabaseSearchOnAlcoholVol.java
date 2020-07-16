@@ -7,6 +7,14 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class DatabaseSearchOnAlcoholVol {
 
+    private static double userInputDouble() {
+        System.out.println(" Input Double to search by Alcohol VOL:  ");
+        Scanner sc = new Scanner(System.in);
+        double searchDouble = sc.nextDouble();
+
+        return searchDouble;
+    }
+
     public static Connection dbConnectSearchOnAlcoholVol() {
 
         Connection conn = null;
@@ -38,11 +46,5 @@ public class DatabaseSearchOnAlcoholVol {
             throwables.printStackTrace();
         }
         return conn;
-    }
-    private static double userInputDouble() {
-        System.out.println(" Input Double to search by Alcohol VOL:  ");
-        Scanner sc = new Scanner(System.in);
-        double searchDouble = sc.nextDouble();
-        return searchDouble;
     }
 }

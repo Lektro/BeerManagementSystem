@@ -10,8 +10,10 @@ public class DatabaseChangePrice {
     private static int userInputBeerID() {
         System.out.println("Enter the ID number of the beer you want to update: ");
         Scanner sc = new Scanner(System.in);
+
         return sc.nextInt();
     }
+
     private static double userInputPrice() {
         System.out.println("Enter the new price for this Beer: ");
         Scanner sc = new Scanner(System.in);
@@ -20,11 +22,13 @@ public class DatabaseChangePrice {
 
         return adjustedDouble;
     }
+
     public static Connection dbConnectChangePrice() {
 
         Connection conn = null;
         int beerIdToUpdate = userInputBeerID();
         double priceToUpdate = userInputPrice();
+
         String sql = String.format("UPDATE Beers SET Price = %s WHERE Id = %d ", priceToUpdate, beerIdToUpdate);
 
         try {
@@ -36,7 +40,6 @@ public class DatabaseChangePrice {
                 System.out.println(rs);
                 return conn;
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -7,6 +7,14 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class DatabaseSearchOnID {
 
+    private static String userInput() {
+        System.out.println(" Enter the ID of the Beer you want to search: ");
+        Scanner sc = new Scanner(System.in);
+        String searchVariable = sc.nextLine();
+
+        return searchVariable;
+    }
+
     public static Connection dbConnectSearchOnID() {
 
         Connection conn = null;
@@ -38,11 +46,5 @@ public class DatabaseSearchOnID {
             throwables.printStackTrace();
         }
         return conn;
-    }
-    private static String userInput() {
-        System.out.println(" Enter the ID of the Beer you want to search: ");
-        Scanner sc = new Scanner(System.in);
-        String searchVariable = sc.nextLine();
-        return searchVariable;
     }
 }
