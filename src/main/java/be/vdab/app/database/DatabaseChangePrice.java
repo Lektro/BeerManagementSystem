@@ -5,26 +5,26 @@ import java.util.Scanner;
 
 import static be.vdab.app.login.util.LoginCredentials.*;
 
-public class DatabaseChangeStock {
+public class DatabaseChangePrice {
 
     private static int userInputBeerID() {
         System.out.println("Enter the ID number of the beer you want to update: ");
         Scanner sc = new Scanner(System.in);
-        int nameToUpdate = sc.nextInt();
-        return nameToUpdate;
+        int idToUpdate = sc.nextInt();
+        return idToUpdate;
     }
-    private static int userInputStockQuant() {
-        System.out.println("Enter the quantity you want to update the stock to: ");
+    private static float userInputPrice() {
+        System.out.println("Enter the new price for this Beer: ");
         Scanner sc = new Scanner(System.in);
-        int beerIdToUpdate = sc.nextInt();
-        return beerIdToUpdate;
+        float priceToUpdate = sc.nextFloat();
+        return priceToUpdate;
     }
-    public static Connection dbConnectChangeStock() {
+    public static Connection dbConnectChangePrice() {
 
         Connection conn = null;
         int beerIdToUpdate = userInputBeerID();
-        int stockAmountToUpdate = userInputStockQuant();
-        String sql = String.format("UPDATE Beers SET Stock = %d WHERE ID = %d ", stockAmountToUpdate, beerIdToUpdate);
+        float priceToUpdate = userInputPrice();
+        String sql = String.format("UPDATE Beers SET Price = %d WHERE Id = %d ", priceToUpdate, beerIdToUpdate);
 
         try {
             conn = DriverManager.getConnection(url, user, pass);
