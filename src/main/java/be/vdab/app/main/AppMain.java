@@ -1,6 +1,5 @@
 package be.vdab.app.main;
 
-import static be.vdab.app.database.DatabaseChangePrice.dbConnectChangePrice;
 import static be.vdab.app.searches.DatabaseSearchOnName.dbConnectSearchOnName;
 
 public class AppMain {
@@ -12,9 +11,10 @@ public class AppMain {
         //dbConnectChangeStock();
         //dbConnectSearchOnName();
         //dbConnectSearchOnID();
-        dbConnectChangePrice();
+        // dbConnectChangePrice();
         // give all beers by producers with selected turnover? sql merge?
-        // adjust price??
+        // adjust price?? gives --> java.util.InputMismatchException
+        // adjust price works could use a unit test I suppose
         //
     }
 }
