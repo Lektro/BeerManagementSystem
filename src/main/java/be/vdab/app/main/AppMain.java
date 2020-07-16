@@ -1,12 +1,13 @@
 package be.vdab.app.main;
 
 import static be.vdab.app.database.DatabaseChangePrice.dbConnectChangePrice;
+import static be.vdab.app.searches.DatabaseSearchOnName.dbConnectSearchOnName;
 
 public class AppMain {
 
     public static void main(String[] args) {
         // System.out.println("Test");
-        //dbConnectSearchOnName();
+        dbConnectSearchOnName();
         //dbConnectSearchOnAlcoholVol();
         //dbConnectChangeStock();
         //dbConnectSearchOnName();

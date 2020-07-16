@@ -1,6 +1,7 @@
 package be.vdab.app.database;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import static be.vdab.app.login.util.LoginCredentials.*;
@@ -13,18 +14,19 @@ public class DatabaseChangePrice {
         int idToUpdate = sc.nextInt();
         return idToUpdate;
     }
-    private static float userInputPrice() {
+    private static String userInputPrice() {
         System.out.println("Enter the new price for this Beer: ");
         Scanner sc = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0,00");
         float priceToUpdate = sc.nextFloat();
-        return priceToUpdate;
+        return df.format(priceToUpdate);
     }
     public static Connection dbConnectChangePrice() {
 
         Connection conn = null;
         int beerIdToUpdate = userInputBeerID();
-        float priceToUpdate = userInputPrice();
-        String sql = String.format("UPDATE Beers SET Price = %d WHERE Id = %d ", priceToUpdate, beerIdToUpdate);
+        String priceToUpdate = userInputPrice();
+        String sql = String.format("UPDATE Beers SET Price = %s WHERE Id = %d ", priceToUpdate, beerIdToUpdate);
 
         try {
             conn = DriverManager.getConnection(url, user, pass);
