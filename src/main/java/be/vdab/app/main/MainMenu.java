@@ -1,5 +1,7 @@
 package be.vdab.app.main;
 
+import be.vdab.app.searches.DatabaseSearchOnName;
+
 public class MainMenu {
 
     public static MainMenu mainMenu() {
@@ -26,9 +28,10 @@ public class MainMenu {
         swValue = Keyin.inInt(" Select option: ");
 
         // Switch construct
+        // probably not possible with switch case.. looking into enum/interface
         switch (swValue) {
             case 1:
-
+                DatabaseSearchOnName.dbConnectSearchOnName();
                 break;
             case 2:
                 System.out.println("Option 2 selected");
