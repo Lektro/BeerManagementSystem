@@ -2,7 +2,7 @@ package be.vdab.app.main;
 
 public class MainMenu {
 
-    private void mainMenu {
+    public static MainMenu mainMenu() {
         // Local variable
         int swValue;
 
@@ -40,5 +40,6 @@ public class MainMenu {
                 System.out.println("Invalid selection");
                 break; // This break is not really necessary
         }
+        return null;
     }
 }
