@@ -8,7 +8,7 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 public class DatabaseSearchOnStock {
 
     private static String userInput() {
-        System.out.println("Show all the beers with less stock then: Please enter value. ");
+        System.out.println("Show all the beers with stock less then: Please enter stock quantity. ");
         Scanner sc = new Scanner(System.in);
         String searchVariable = sc.nextLine();
 
