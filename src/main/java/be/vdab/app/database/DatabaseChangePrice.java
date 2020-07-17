@@ -41,6 +41,7 @@ public class DatabaseChangePrice {
 
                 return conn;
             }
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

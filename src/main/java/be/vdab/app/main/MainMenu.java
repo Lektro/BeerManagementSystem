@@ -23,10 +23,10 @@ public class MainMenu {
         System.out.println("| 3. Search Brewers on Turnover |");
         System.out.println("| 4. Change Beer Price by ID    |");
         System.out.println("| 5. Change Beer Stock by ID    |");
-        System.out.println("| 6. ....                       |");
-        System.out.println("| 7. ....                       |");
-        System.out.println("| 8. ....                       |");
-        System.out.println("| 9. ....                       |");
+        //System.out.println("| 6. ....                       |");
+        //System.out.println("| 7. ....                       |");
+        //System.out.println("| 8. ....                       |");
+        //System.out.println("| 9. ....                       |");
         System.out.println("| 0. Exit                       |");
         System.out.println("=================================");
         swValue = Keyin.inInt(" Select option: ");
@@ -52,6 +52,9 @@ public class MainMenu {
             case 5:
                 DatabaseChangeStock.dbConnectChangeStock();
                 MainMenu.mainMenu();
+            case 0:
+                System.out.println("Closing Program");
+                System.exit(0);
             default:
                 MainMenu.mainMenu();
                 break; // This break is not really necessary
