@@ -7,6 +7,13 @@ import static be.vdab.app.login.util.LoginCredentials.*;
 
 public class DatabaseSearchOnName {
 
+    private static String userInput() {
+        System.out.println(" Enter Search Term for Beer Name: ");
+        Scanner sc = new Scanner(System.in);
+        String searchVariable = sc.nextLine();
+        return searchVariable;
+    }
+
     public static Connection dbConnectSearchOnName() {
 
         Connection conn = null;
@@ -38,11 +45,5 @@ public class DatabaseSearchOnName {
             throwables.printStackTrace();
         }
         return conn;
-    }
-    private static String userInput() {
-        System.out.println(" Enter Search Term for Beer Name: ");
-        Scanner sc = new Scanner(System.in);
-        String searchVariable = sc.nextLine();
-        return searchVariable;
     }
 }

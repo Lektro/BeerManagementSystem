@@ -44,6 +44,7 @@ public class DatabaseChangeStock {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
         return conn;
     }
 }

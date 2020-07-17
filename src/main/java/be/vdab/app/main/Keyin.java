@@ -1,11 +1,13 @@
 package be.vdab.app.main;
 
+/** class to handle main menu keystrokes */
 public class Keyin {
 
     public static void printPrompt(String prompt) {
         System.out.print(prompt + " ");
         System.out.flush();
     }
+
     public static void inputFlush() {
         int dummy;
         int bAvail;
@@ -17,24 +19,25 @@ public class Keyin {
             System.out.println("Input error");
         }
     }
+
     public static int inInt(String prompt) {
         while (true) {
             inputFlush();
             printPrompt(prompt);
             try {
                 return Integer.valueOf(inString().trim()).intValue();
-            }
-
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Not an integer");
             }
         }
     }
+
     public static String inString(String prompt) {
         inputFlush();
         printPrompt(prompt);
         return inString();
     }
+
     public static String inString() {
         int aChar;
         String s = "";
@@ -47,13 +50,16 @@ public class Keyin {
                     finished = true;
                 else if ((char) aChar != '\r')
                     s = s + (char) aChar; // Enter into string
-            }
-
-            catch (java.io.IOException e) {
+            } catch (java.io.IOException e) {
                 System.out.println("Input error");
                 finished = true;
             }
         }
         return s;
+    }
+
+    /** return to Main menu */
+    public void ReturnToMenu(){
+        MainMenu.mainMenu();
     }
 }

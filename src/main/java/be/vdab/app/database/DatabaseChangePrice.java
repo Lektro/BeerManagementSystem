@@ -38,11 +38,13 @@ public class DatabaseChangePrice {
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 int rs = st.executeUpdate(sql);
                 System.out.println(rs);
+
                 return conn;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
         return conn;
     }
 }

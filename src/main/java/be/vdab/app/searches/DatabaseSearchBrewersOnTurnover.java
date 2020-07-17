@@ -40,10 +40,10 @@ public class DatabaseSearchBrewersOnTurnover {
                 }
                 return conn;
             }
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return conn;
     }
-
 }

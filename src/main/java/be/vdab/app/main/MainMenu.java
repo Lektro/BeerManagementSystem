@@ -31,23 +31,27 @@ public class MainMenu {
         System.out.println("=================================");
         swValue = Keyin.inInt(" Select option: ");
 
-        // Switch construct
-        // probably not possible with switch case.. looking into enum/interface
+        /** Switch construct to go through the diffrent options */
         switch (swValue) {
             case 1:
                 DatabaseSearchOnName.dbConnectSearchOnName();
+                MainMenu.mainMenu();
                 break;
             case 2:
                 DatabaseSearchOnID.dbConnectSearchOnID();
+                MainMenu.mainMenu();
                 break;
             case 3:
                 DatabaseSearchOnAlcoholVol.dbConnectSearchOnAlcoholVol();
+                MainMenu.mainMenu();
                 break;
             case 4:
                 DatabaseChangePrice.dbConnectChangePrice();
+                MainMenu.mainMenu();
                 break;
             case 5:
                 DatabaseChangeStock.dbConnectChangeStock();
+                MainMenu.mainMenu();
             default:
                 MainMenu.mainMenu();
                 break; // This break is not really necessary
