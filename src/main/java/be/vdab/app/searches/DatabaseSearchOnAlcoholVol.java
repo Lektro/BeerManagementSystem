@@ -38,7 +38,7 @@ public class DatabaseSearchOnAlcoholVol {
                     int BrewerId = rs.getInt(6);
                     int CategoryId = rs.getInt(7);
                     System.out.format("%s %s %s %s %s %s %s%n", beerName + " -- ", "ID Number: " + id," % VOL: "+  alcohol," EUR: " + price,
-                            " Pcs in Stock: " + stock, "Brewer ID: " + BrewerId, "Category ID: " + CategoryId);
+                            "Total Stock: " + stock, "Brewer ID: " + BrewerId, "Category ID: " + CategoryId);
                 }
                 return conn;
             }
