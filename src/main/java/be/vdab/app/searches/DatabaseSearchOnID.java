@@ -28,7 +28,7 @@ public class DatabaseSearchOnID {
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
 
-                /** While there are matches found print out the result */
+                /* While there are matches found print out the result */
                 while (rs.next()) {
                     String beerName = rs.getString(1);
                     int id = rs.getInt(2);

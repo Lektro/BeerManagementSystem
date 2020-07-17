@@ -6,7 +6,7 @@ import be.vdab.app.searches.*;
 
 public class MainMenu {
 
-    public static MainMenu mainMenu() {
+    public static void mainMenu() {
         // Local variable
         int swValue;
 
@@ -67,6 +67,6 @@ public class MainMenu {
                 MainMenu.mainMenu();
                 break; // This break is not really necessary
         }
-        return null;
+        return;
     }
 }

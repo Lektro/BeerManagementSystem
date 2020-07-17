@@ -5,7 +5,7 @@ import be.vdab.app.database.DatabaseChangeStock;
 import be.vdab.app.searches.*;
 
 public class SecondaryMenu {
-    public static SecondaryMenu secondaryMenu() {
+    public static void secondaryMenu() {
         // Local variable
         int swValue;
 
@@ -63,6 +63,6 @@ public class SecondaryMenu {
                 SecondaryMenu.secondaryMenu();
                 break; // This break is not really necessary
         }
-        return null;
+        return;
     }
 }
