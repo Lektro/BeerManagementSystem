@@ -1,5 +1,9 @@
 package be.vdab.app.main;
 
+import be.vdab.app.database.DatabaseChangePrice;
+import be.vdab.app.database.DatabaseChangeStock;
+import be.vdab.app.searches.DatabaseSearchOnAlcoholVol;
+import be.vdab.app.searches.DatabaseSearchOnID;
 import be.vdab.app.searches.DatabaseSearchOnName;
 
 public class MainMenu {
@@ -34,13 +38,18 @@ public class MainMenu {
                 DatabaseSearchOnName.dbConnectSearchOnName();
                 break;
             case 2:
-                System.out.println("Option 2 selected");
+                DatabaseSearchOnID.dbConnectSearchOnID();
                 break;
             case 3:
-                System.out.println("Exit selected");
+                DatabaseSearchOnAlcoholVol.dbConnectSearchOnAlcoholVol();
                 break;
+            case 4:
+                DatabaseChangePrice.dbConnectChangePrice();
+                break;
+            case 5:
+                DatabaseChangeStock.dbConnectChangeStock();
             default:
-                System.out.println("Invalid selection");
+                MainMenu.mainMenu();
                 break; // This break is not really necessary
         }
         return null;
