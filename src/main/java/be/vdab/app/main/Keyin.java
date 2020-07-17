@@ -1,6 +1,8 @@
 package be.vdab.app.main;
 
-/** class to handle main menu keystrokes */
+/** class to handle main menu keystrokes, straight from da web to handle input miss match in the main menu,
+ * typing bigger ints then 9 returns back to menu, letters will give error */
+
 public class Keyin {
 
     public static void printPrompt(String prompt) {
@@ -10,7 +12,6 @@ public class Keyin {
 
     public static void inputFlush() {
         int dummy;
-        int bAvail;
 
         try {
             while ((System.in.available()) != 0)
@@ -27,7 +28,7 @@ public class Keyin {
             try {
                 return Integer.valueOf(inString().trim()).intValue();
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Not an integer");
+                System.out.println("Invalid input. Please type in a valid option number");
             }
         }
     }
@@ -50,6 +51,7 @@ public class Keyin {
                     finished = true;
                 else if ((char) aChar != '\r')
                     s = s + (char) aChar; // Enter into string
+
             } catch (java.io.IOException e) {
                 System.out.println("Input error");
                 finished = true;

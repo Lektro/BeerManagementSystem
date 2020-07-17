@@ -5,21 +5,21 @@ import java.util.Scanner;
 
 import static be.vdab.app.login.util.LoginCredentials.*;
 
-public class DatabaseSearchOnAlcoholVol {
+public class DatabaseSearchOnStock {
 
-    private static double userInputDouble() {
-        System.out.println(" Input number to search by Alcohol VOL:  ");
+    private static String userInput() {
+        System.out.println("Show all the beers with less stock then: Please enter value. ");
         Scanner sc = new Scanner(System.in);
-        double searchDouble = sc.nextDouble();
+        String searchVariable = sc.nextLine();
 
-        return searchDouble;
+        return searchVariable;
     }
 
-    public static Connection dbConnectSearchOnAlcoholVol() {
+    public static Connection dbConnectSearchOnStock() {
 
         Connection conn = null;
-        double searchVariable = userInputDouble();
-        String sql = "SELECT Name, Id, Alcohol, Price, Stock, BrewerId, CategoryId FROM Beers WHERE Alcohol = " + searchVariable + "";
+        String searchVariable = userInput();
+        String sql = "SELECT Name, Id, Alcohol, Price, Stock, BrewerId, CategoryId FROM Beers WHERE Stock < " + searchVariable + "";
 
         try {
             conn = DriverManager.getConnection(url, user, pass);

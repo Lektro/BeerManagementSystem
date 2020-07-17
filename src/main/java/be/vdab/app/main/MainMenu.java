@@ -2,10 +2,7 @@ package be.vdab.app.main;
 
 import be.vdab.app.database.DatabaseChangePrice;
 import be.vdab.app.database.DatabaseChangeStock;
-import be.vdab.app.searches.DatabaseSearchBrewersOnTurnover;
-import be.vdab.app.searches.DatabaseSearchOnAlcoholVol;
-import be.vdab.app.searches.DatabaseSearchOnID;
-import be.vdab.app.searches.DatabaseSearchOnName;
+import be.vdab.app.searches.*;
 
 public class MainMenu {
 
@@ -24,9 +21,9 @@ public class MainMenu {
         System.out.println("| 4. Search Brewers on Turnover |");
         System.out.println("| 5. Change Beer Price by ID    |");
         System.out.println("| 6. Change Beer Stock by ID    |");
-        //System.out.println("| 7. ....                       |");
-        //System.out.println("| 8. ....                       |");
-        //System.out.println("| 9. ....                       |");
+        System.out.println("| 7. Check Beer on Stock        |");
+        //System.out.println("| 8. ....                       |"); try to go to a new page in the menu?
+        //System.out.println("| 9. ....                       |");show beers per brewer selected on turnover maybe?
         System.out.println("| 0. Exit                       |");
         System.out.println("=================================");
         swValue = Keyin.inInt(" Select option: ");
@@ -54,6 +51,9 @@ public class MainMenu {
                 break;
             case 6:
                 DatabaseChangeStock.dbConnectChangeStock();
+                MainMenu.mainMenu();
+            case 7:
+                DatabaseSearchOnStock.dbConnectSearchOnStock();
                 MainMenu.mainMenu();
             case 0:
                 System.out.println("Closing Program");
