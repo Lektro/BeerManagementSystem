@@ -21,6 +21,7 @@ public class Keyin {
         }
     }
 
+    /** makes the user input string into a valid int for the switch case main menu */
     public static int inInt(String prompt) {
         while (true) {
             inputFlush();

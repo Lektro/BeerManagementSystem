@@ -4,15 +4,14 @@ import be.vdab.app.database.DatabaseChangePrice;
 import be.vdab.app.database.DatabaseChangeStock;
 import be.vdab.app.searches.*;
 
-public class MainMenu {
-
-    public static MainMenu mainMenu() {
+public class SecondaryMenu {
+    public static SecondaryMenu secondaryMenuMenu() {
         // Local variable
         int swValue;
 
         // Display menu graphics
         System.out.println("=================================");
-        System.out.println("|     Beer Inventory System     |");
+        System.out.println("|       Secondary Menu          |");
         System.out.println("=================================");
         System.out.println("| Options:                      |");
         System.out.println("| 1. Search on Name             |");
@@ -24,7 +23,7 @@ public class MainMenu {
         System.out.println("| 7. Change Beer Stock by ID    |");
         System.out.println("| 8. Go to Secondary Menu       |"); //try to go to a new page in the menu?
         //System.out.println("| 9. ....                       |");show beers per brewer selected on turnover maybe?
-        System.out.println("| 0. Exit                       |");
+        System.out.println("| 0. Exit to Main               |");
         System.out.println("=================================");
 
         swValue = Keyin.inInt(" Select option: ");
@@ -58,11 +57,8 @@ public class MainMenu {
                 DatabaseChangeStock.dbConnectChangeStock();
                 System.out.println("Stock update successful");
                 MainMenu.mainMenu();
-            case 8:
-                SecondaryMenu.secondaryMenuMenu();
             case 0:
-                System.out.println("Program Closing");
-                System.exit(0);
+                MainMenu.mainMenu();
             default:
                 MainMenu.mainMenu();
                 break; // This break is not really necessary
