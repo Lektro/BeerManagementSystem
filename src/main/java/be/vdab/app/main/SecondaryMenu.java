@@ -5,7 +5,7 @@ import be.vdab.app.database.DatabaseChangeStock;
 import be.vdab.app.searches.*;
 
 public class SecondaryMenu {
-    public static SecondaryMenu secondaryMenuMenu() {
+    public static SecondaryMenu secondaryMenu() {
         // Local variable
         int swValue;
 
@@ -21,9 +21,9 @@ public class SecondaryMenu {
         System.out.println("| 5. Search Beer on Stock       |");
         System.out.println("| 6. Change Beer Price by ID    |");
         System.out.println("| 7. Change Beer Stock by ID    |");
-        System.out.println("| 8. Go to Secondary Menu       |"); //try to go to a new page in the menu?
+        //System.out.println("| 8.                            |"); //try to go to a new page in the menu?
         //System.out.println("| 9. ....                       |");show beers per brewer selected on turnover maybe?
-        System.out.println("| 0. Exit to Main               |");
+        System.out.println("| 0. Back to Main Menu          |");
         System.out.println("=================================");
 
         swValue = Keyin.inInt(" Select option: ");
@@ -60,7 +60,7 @@ public class SecondaryMenu {
             case 0:
                 MainMenu.mainMenu();
             default:
-                MainMenu.mainMenu();
+                SecondaryMenu.secondaryMenu();
                 break; // This break is not really necessary
         }
         return null;

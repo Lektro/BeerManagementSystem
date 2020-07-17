@@ -59,7 +59,7 @@ public class MainMenu {
                 System.out.println("Stock update successful");
                 MainMenu.mainMenu();
             case 8:
-                SecondaryMenu.secondaryMenuMenu();
+                SecondaryMenu.secondaryMenu();
             case 0:
                 System.out.println("Program Closing");
                 System.exit(0);
