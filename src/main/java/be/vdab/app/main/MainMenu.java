@@ -2,6 +2,7 @@ package be.vdab.app.main;
 
 import be.vdab.app.database.DatabaseChangePrice;
 import be.vdab.app.database.DatabaseChangeStock;
+import be.vdab.app.searches.DatabaseSearchBrewersOnTurnover;
 import be.vdab.app.searches.DatabaseSearchOnAlcoholVol;
 import be.vdab.app.searches.DatabaseSearchOnID;
 import be.vdab.app.searches.DatabaseSearchOnName;
@@ -19,11 +20,10 @@ public class MainMenu {
         System.out.println("| Options:                      |");
         System.out.println("| 1. Search on Name             |");
         System.out.println("| 2. Search on ID               |");
-        System.out.println("| 2. Search on Alcohol VOL      |");
-        System.out.println("| 3. Search Brewers on Turnover |");
-        System.out.println("| 4. Change Beer Price by ID    |");
-        System.out.println("| 5. Change Beer Stock by ID    |");
-        //System.out.println("| 6. ....                       |");
+        System.out.println("| 3. Search on Alcohol VOL      |");
+        System.out.println("| 4. Search Brewers on Turnover |");
+        System.out.println("| 5. Change Beer Price by ID    |");
+        System.out.println("| 6. Change Beer Stock by ID    |");
         //System.out.println("| 7. ....                       |");
         //System.out.println("| 8. ....                       |");
         //System.out.println("| 9. ....                       |");
@@ -46,10 +46,13 @@ public class MainMenu {
                 MainMenu.mainMenu();
                 break;
             case 4:
+                DatabaseSearchBrewersOnTurnover.dbConnectSearchOnBrewerTurnover();
+                MainMenu.mainMenu();
+            case 5:
                 DatabaseChangePrice.dbConnectChangePrice();
                 MainMenu.mainMenu();
                 break;
-            case 5:
+            case 6:
                 DatabaseChangeStock.dbConnectChangeStock();
                 MainMenu.mainMenu();
             case 0:
