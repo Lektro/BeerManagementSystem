@@ -19,16 +19,17 @@ public class MainMenu {
         System.out.println("| 2. Search on ID               |");
         System.out.println("| 3. Search on Alcohol VOL      |");
         System.out.println("| 4. Search Brewers on Turnover |");
-        System.out.println("| 5. Change Beer Price by ID    |");
-        System.out.println("| 6. Change Beer Stock by ID    |");
-        System.out.println("| 7. Check Beer on Stock        |");
+        System.out.println("| 5. Search Beer on Stock       |");
+        System.out.println("| 6. Change Beer Price by ID    |");
+        System.out.println("| 7. Change Beer Stock by ID    |");
         //System.out.println("| 8. ....                       |"); try to go to a new page in the menu?
         //System.out.println("| 9. ....                       |");show beers per brewer selected on turnover maybe?
         System.out.println("| 0. Exit                       |");
         System.out.println("=================================");
+
         swValue = Keyin.inInt(" Select option: ");
 
-        /** Switch construct to go through the diffrent options */
+        /** Switch construct to go through the different options */
         switch (swValue) {
             case 1:
                 DatabaseSearchOnName.dbConnectSearchOnName();
@@ -46,17 +47,19 @@ public class MainMenu {
                 DatabaseSearchBrewersOnTurnover.dbConnectSearchOnBrewerTurnover();
                 MainMenu.mainMenu();
             case 5:
-                DatabaseChangePrice.dbConnectChangePrice();
-                MainMenu.mainMenu();
-                break;
-            case 6:
-                DatabaseChangeStock.dbConnectChangeStock();
-                MainMenu.mainMenu();
-            case 7:
                 DatabaseSearchOnStock.dbConnectSearchOnStock();
                 MainMenu.mainMenu();
+            case 6:
+                DatabaseChangePrice.dbConnectChangePrice();
+                System.out.println("Price update successful!");
+                MainMenu.mainMenu();
+                break;
+            case 7:
+                DatabaseChangeStock.dbConnectChangeStock();
+                System.out.println("Stock update successful");
+                MainMenu.mainMenu();
             case 0:
-                System.out.println("Closing Program");
+                System.out.println("Program Closing");
                 System.exit(0);
             default:
                 MainMenu.mainMenu();
